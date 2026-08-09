@@ -91,7 +91,7 @@ html{scroll-behavior:smooth}
 
 <hr class="hr" style="max-width:1200px;margin:0 auto">
 
-<section id="about" style="max-width: 1200px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,4vw,48px); display: grid; grid-template-columns: minmax(0,0.85fr) minmax(0,1.3fr) minmax(0,1fr); gap: clamp(28px,5vw,48px); align-items: center">
+<section id="about" style="max-width: 1200px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,4vw,48px); display: grid; grid-template-columns: minmax(0,0.85fr) minmax(0,1.3fr); gap: clamp(28px,5vw,48px); align-items: center">
   <figure class="grayscale" style="margin:0;border:2px solid var(--color-divider);aspect-ratio:4/5;overflow:hidden;align-self:start">
     <img src="assets/robin-portrait.png" alt="Portrait von Robin von Malottki" style="width:100%;height:100%;object-fit:cover;display:block">
   </figure>
@@ -100,20 +100,6 @@ html{scroll-behavior:smooth}
     <h2 style="max-width:20ch">{{ i18n.aboutH2 }}</h2>
     <p style="font-size:16px;opacity:.85;max-width:56ch">{{ i18n.aboutP1 }}</p>
     <p style="font-size:16px;opacity:.85;max-width:56ch">{{ i18n.aboutP2 }}</p>
-  </div>
-  <div style="display:flex;flex-direction:column;gap:18px">
-    <div class="card" style="background:transparent;border:1px solid var(--color-divider);padding:20px">
-      <div class="card-kicker">{{ i18n.focusKicker }}</div>
-      <div class="card-title" style="font-size:16px">{{ i18n.focusValue }}</div>
-    </div>
-    <div class="card" style="background:transparent;border:1px solid var(--color-divider);padding:20px">
-      <div class="card-kicker">{{ i18n.toolsKicker }}</div>
-      <div class="card-title" style="font-size:16px">{{ i18n.toolsValue }}</div>
-    </div>
-    <div class="card" style="background:transparent;border:1px solid var(--color-divider);padding:20px">
-      <div class="card-kicker">{{ i18n.approachKicker }}</div>
-      <div class="card-title" style="font-size:16px">{{ i18n.approachValue }}</div>
-    </div>
   </div>
 </section>
 
@@ -150,7 +136,7 @@ html{scroll-behavior:smooth}
     <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
       <div class="card elev-sm" style="background:var(--color-surface);padding:24px;justify-content:space-between;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-md)">
         <div>
-          <div class="proj-thumb grayscale">
+          <div class="proj-thumb">
             <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">
           </div>
           <div class="card-kicker">{{ p.category }}</div>
@@ -253,7 +239,7 @@ html{scroll-behavior:smooth}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
     <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
       <a href="{{ post.href }}" target="_blank" rel="noopener" class="card" style="background:var(--color-surface);padding:22px;text-decoration:none;color:inherit;transition:transform .2s ease" style-hover="transform:translateY(-4px)">
-        <div class="blog-thumb grayscale">
+        <div class="blog-thumb">
           <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
         </div>
         <div class="card-kicker">{{ post.tag }}</div>
@@ -387,9 +373,6 @@ class Component extends DCLogic {
       aboutH2: 'Aus Excel-Verwaltern werden Daten-Konsumenten.',
       aboutP1: 'Ich bin Data Analyst mit Schwerpunkt auf verwertbaren Erkenntnissen aus Daten. Von dort gehe ich zwei Schritte weiter: mit ML-Modellen für tiefere, statistisch fundierte Einblicke in Prozesse und Zusammenhänge, und mit n8n-/AI-gestützten Automatisierungen, die diese Erkenntnisse verlässlich dorthin liefern, wo sie gebraucht werden — statt in manuell gepflegten Tabellen zu versickern.',
       aboutP2: 'Ich arbeite gern nah an den Fachbereichen — vom Anforderungsgespräch bis zum produktiven, überwachten Workflow — und übersetze wiederkehrende manuelle Prozesse in verlässliche, dokumentierte Systeme.',
-      focusKicker: 'Fokus', focusValue: 'Datenanalyse · ML-Modelle · Workflow-Automatisierung',
-      toolsKicker: 'Werkzeuge', toolsValue: 'Tableau · SQL · Python · n8n',
-      approachKicker: 'Ansatz', approachValue: 'Von der Analyse zum automatisierten, überwachten Workflow',
       experienceH2: 'Stationen',
       projectsH2: 'Ausgewählte Case Studies',
       projectsSub: 'Fünf Automatisierungen, die manuelle Prozesse durch verlässliche, produktive Systeme ersetzt haben.',
@@ -418,9 +401,6 @@ class Component extends DCLogic {
       aboutH2: 'From spreadsheet managers to data consumers.',
       aboutP1: "I'm a Data Analyst focused on turning data into actionable insight. From there I go two steps further: using ML models for deeper, statistically grounded understanding of processes and relationships, and n8n-/AI-powered automation that reliably delivers those insights where they're needed — instead of letting them get lost in manually maintained spreadsheets.",
       aboutP2: 'I like working closely with the business side — from the initial requirements conversation to a live, monitored workflow — and turning recurring manual processes into reliable, documented systems.',
-      focusKicker: 'Focus', focusValue: 'Data Analysis · ML Models · Workflow Automation',
-      toolsKicker: 'Tools', toolsValue: 'Tableau · SQL · Python · n8n',
-      approachKicker: 'Approach', approachValue: 'From analysis to an automated, monitored workflow',
       experienceH2: 'Timeline',
       projectsH2: 'Selected case studies',
       projectsSub: 'Five automations that replaced manual processes with reliable, production systems.',
