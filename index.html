@@ -18,7 +18,6 @@ html{scroll-behavior:smooth}
 @keyframes rvmFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes rvmFade{from{opacity:0}to{opacity:1}}
 @media (max-width:700px){.rvm-skills-grid{grid-template-columns:1fr !important}}
-.img-placeholder{background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;text-align:center;color:color-mix(in srgb,var(--color-text) 55%,transparent);font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;padding:12px}
 .blog-thumb{aspect-ratio:16/10;margin-bottom:16px;overflow:hidden;background:var(--color-surface);border:1px solid var(--color-divider)}
 .blog-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .proj-thumb{position:relative;aspect-ratio:16/10;margin-bottom:16px;overflow:hidden;background:var(--color-surface);border:1px solid var(--color-divider)}
@@ -243,7 +242,8 @@ html{scroll-behavior:smooth}
           <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
         </div>
         <div class="card-kicker">{{ post.tag }}</div>
-        <div class="card-title" style="font-size:17px;margin-bottom:8px">{{ post.title }} <span style="font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 55%,transparent)">· {{ post.claps }} Claps</span></div>
+        <div class="card-title" style="font-size:17px;margin-bottom:4px">{{ post.title }}</div>
+        <div style="font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 55%,transparent);margin-bottom:8px">{{ post.claps }} Claps</div>
         <p class="card-body">{{ post.excerpt }}</p>
         <div class="card-meta">{{ i18n.readMore }}</div>
       </a>
@@ -305,7 +305,9 @@ html{scroll-behavior:smooth}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
         </button>
       </div>
-      <div class="img-placeholder" style="aspect-ratio:16/9;margin:8px 0">{{ openProjectData.thumbLabel }}</div>
+      <div style="aspect-ratio:16/9;margin:8px 0;overflow:hidden;background:var(--color-surface);border:1px solid var(--color-divider)">
+        <img src="{{ openProjectData.image }}" alt="{{ openProjectData.title }}" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
       <p style="font-size:15px;font-style:italic;opacity:.85;margin:0">{{ openProjectData.hook }}</p>
       <div>
         <h6 style="color:var(--color-accent-700)">{{ i18n.dialogSituation }}</h6>
@@ -517,7 +519,6 @@ class Component extends DCLogic {
     {
       id: 1,
       category: 'Data Platform',
-      thumbLabel: { de: 'Screenshot: n8n-Workflow · BigQuery-Modell', en: 'Screenshot: n8n workflow · BigQuery model' },
       image: 'https://images.pexels.com/photos/34293526/pexels-photo-34293526.jpeg?auto=compress&cs=tinysrgb&w=1200',
       title: { de: 'Ablösung eines Schatten-CRM', en: 'Replacing a shadow CRM' },
       problem: { de: 'Teamleads pflegten täglich eine Excel-Liste mit hunderten Spalten von Hand, obwohl der Großteil der Daten längst im CRM stand.', en: 'Team leads manually maintained a daily Excel list with hundreds of columns, even though most of the data already lived in the CRM.' },
@@ -537,7 +538,6 @@ class Component extends DCLogic {
     {
       id: 2,
       category: 'Data Quality',
-      thumbLabel: { de: 'Screenshot: Regelbasierter Datenqualitäts-Check', en: 'Screenshot: rule-based data quality check' },
       image: 'https://images.pexels.com/photos/37539911/pexels-photo-37539911.jpeg?auto=compress&cs=tinysrgb&w=1200',
       title: { de: 'Automatisierte Datenqualitätsprüfung', en: 'Automated data quality checks' },
       problem: { de: 'Inkonsistenzen in den Beständen fielen erst auf, wenn jemand zufällig über sie stolperte.', en: 'Inconsistencies in inventory only surfaced when someone happened to stumble across them.' },
@@ -557,7 +557,6 @@ class Component extends DCLogic {
     {
       id: 3,
       category: 'Machine Learning',
-      thumbLabel: { de: 'Screenshot: Prognose-Dashboard in Tableau', en: 'Screenshot: forecast dashboard in Tableau' },
       image: 'https://images.pexels.com/photos/12235766/pexels-photo-12235766.jpeg?auto=compress&cs=tinysrgb&w=1200',
       title: { de: 'Umsatzprognose per Machine Learning', en: 'Revenue forecasting with machine learning' },
       problem: { de: 'Prognosen beruhten auf manuellen Einschätzungen — Predictive Modeling gab es im Analytics-Bereich nicht.', en: 'Forecasts relied on manual estimates — there was no predictive modeling in the analytics function.' },
@@ -577,7 +576,6 @@ class Component extends DCLogic {
     {
       id: 4,
       category: 'Analytics Consulting',
-      thumbLabel: { de: 'Screenshot: Launch-Dashboard in Tableau', en: 'Screenshot: launch dashboard in Tableau' },
       image: 'https://images.pexels.com/photos/8392541/pexels-photo-8392541.jpeg?auto=compress&cs=tinysrgb&w=1200',
       title: { de: 'Medical Launch Dashboard', en: 'Medical Launch Dashboard' },
       problem: { de: 'Marketing und Sales brauchten eine gemeinsame Entscheidungsgrundlage für einen Medikamenten-Launch.', en: 'Marketing and Sales needed a shared basis for decisions for a drug launch.' },
@@ -597,7 +595,6 @@ class Component extends DCLogic {
     {
       id: 5,
       category: 'Content Automation',
-      thumbLabel: { de: 'Screenshot: Erklärvideo-Pipeline', en: 'Screenshot: explainer video pipeline' },
       image: 'https://images.pexels.com/photos/12715624/pexels-photo-12715624.jpeg?auto=compress&cs=tinysrgb&w=1200',
       title: { de: 'Automatisierte Erstellung von Erklärvideos', en: 'Automated explainer video production' },
       problem: { de: 'Promotion, Erklärung und Ausbildung in einem Format zusammenzubringen kostete bei manueller Produktion viel Zeit für Skript, Vertonung und Schnitt.', en: 'Combining promotion, explanation, and instruction in one format took a lot of manual effort for scripting, voiceover, and editing.' },
@@ -734,7 +731,6 @@ class Component extends DCLogic {
       tech: p.tech,
       github: p.github,
       internal: p.internal,
-      thumbLabel: p.thumbLabel[lang],
       image: p.image,
       title: p.title[lang],
       problem: p.problem[lang],
@@ -779,7 +775,7 @@ class Component extends DCLogic {
       tech: openProjectRaw.tech,
       github: openProjectRaw.github,
       internal: openProjectRaw.internal,
-      thumbLabel: openProjectRaw.thumbLabel[lang],
+      image: openProjectRaw.image,
       title: openProjectRaw.title[lang],
       hook: openProjectRaw.hook[lang],
       problemLong: openProjectRaw.problemLong[lang],
