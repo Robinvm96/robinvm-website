@@ -77,7 +77,7 @@ html{scroll-behavior:smooth}
   </div>
   <div style="display:flex;gap:14px;flex-wrap:wrap;animation:rvmFadeUp .6s ease .24s both">
     <a href="#projects" class="btn btn-primary">{{ i18n.viewProjects }}</a>
-    <a href="{{ links.resume }}" class="btn btn-secondary">
+    <a href="{{ links.resume }}" class="btn btn-secondary" download="">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
       {{ i18n.resume }}
     </a>
@@ -383,7 +383,7 @@ class Component extends DCLogic {
       heroH1: 'Daten verstehen. Arbeit automatisieren.',
       heroSubDataLabel: 'Daten', heroSubDataText: 'aus Rohdaten werden verwertbare Erkenntnisse, Prognosen und Entscheidungshilfen — durch Analytics, Dashboards, Machine Learning und Data Engineering.',
       heroSubAutoLabel: 'Automatisierung', heroSubAutoText: 'wiederkehrende manuelle Arbeit beseitigen, ob mit Daten oder ohne, für verlässliche, effiziente Workflows.',
-      viewProjects: 'Projekte ansehen', resume: 'Lebenslauf',
+      viewProjects: 'Projekte ansehen', resume: 'Lebenslauf herunterladen',
       aboutH2: 'Aus Excel-Verwaltern werden Daten-Konsumenten.',
       aboutP1: 'Ich bin Data Analyst mit Schwerpunkt auf verwertbaren Erkenntnissen aus Daten. Von dort gehe ich zwei Schritte weiter: mit ML-Modellen für tiefere, statistisch fundierte Einblicke in Prozesse und Zusammenhänge, und mit n8n-/AI-gestützten Automatisierungen, die diese Erkenntnisse verlässlich dorthin liefern, wo sie gebraucht werden — statt in manuell gepflegten Tabellen zu versickern.',
       aboutP2: 'Ich arbeite gern nah an den Fachbereichen — vom Anforderungsgespräch bis zum produktiven, überwachten Workflow — und übersetze wiederkehrende manuelle Prozesse in verlässliche, dokumentierte Systeme.',
@@ -414,7 +414,7 @@ class Component extends DCLogic {
       heroH1: 'Understand data. Automate the work.',
       heroSubDataLabel: 'Data', heroSubDataText: 'turning raw numbers into insight, forecasts, and decision support — through analytics, dashboards, machine learning, and data engineering.',
       heroSubAutoLabel: 'Automation', heroSubAutoText: 'eliminating repeatable manual work, whether it touches data or not, with efficient, reliable workflows.',
-      viewProjects: 'View projects', resume: 'Resume',
+      viewProjects: 'View projects', resume: 'Download CV',
       aboutH2: 'From spreadsheet managers to data consumers.',
       aboutP1: "I'm a Data Analyst focused on turning data into actionable insight. From there I go two steps further: using ML models for deeper, statistically grounded understanding of processes and relationships, and n8n-/AI-powered automation that reliably delivers those insights where they're needed — instead of letting them get lost in manually maintained spreadsheets.",
       aboutP2: 'I like working closely with the business side — from the initial requirements conversation to a live, monitored workflow — and turning recurring manual processes into reliable, documented systems.',
@@ -444,6 +444,11 @@ class Component extends DCLogic {
   links = {
     email: 'contact@robinvm.de',
     resume: '#'
+  };
+
+  resumeUrls = {
+    de: 'assets/robin-von-malottki-cv-de.pdf',
+    en: 'assets/robin-von-malottki-cv-en.pdf'
   };
 
   socials = [
@@ -817,7 +822,7 @@ class Component extends DCLogic {
       langDeStyle: `opacity:${lang === 'de' ? '1' : '.5'};color:${lang === 'de' ? 'var(--color-accent-700)' : 'var(--color-text)'};font-size:13px;font-weight:800;line-height:1;padding:7px 12px;transition:opacity .2s ease,color .2s ease`,
       langEnStyle: `opacity:${lang === 'en' ? '1' : '.5'};color:${lang === 'en' ? 'var(--color-accent-700)' : 'var(--color-text)'};font-size:13px;font-weight:800;line-height:1;padding:7px 12px;transition:opacity .2s ease,color .2s ease`,
       stack: this.stackByLang[lang],
-      links: this.links,
+      links: { ...this.links, resume: this.resumeUrls[lang] },
       socials: this.socials,
       experience,
       projects,
