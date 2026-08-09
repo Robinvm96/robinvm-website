@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robin von Malottki — Data Analyst &amp; Automation</title>
+<meta name="description" content="Robin von Malottki, Data Analyst mit Fokus auf Analytics, Machine Learning und n8n-/AI-gestützter Workflow-Automatisierung.">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-497978d5-7352-4663-9569-477db5312d2f/styles.css">
+<script src="_ds/modernist-497978d5-7352-4663-9569-477db5312d2f/_ds_bundle.js"></script>
+<style>
+html{scroll-behavior:smooth}
+[data-rvm-root][data-theme="dark"]{--color-bg:#141313;--color-surface:#201e1d;--color-text:#f3f2f2;--color-divider:color-mix(in srgb,#f3f2f2 28%,transparent);--shadow-sm:0 1px 2px rgba(0,0,0,.5);--shadow-md:0 3px 14px rgba(0,0,0,.55);--shadow-lg:0 16px 40px rgba(0,0,0,.6)}
+@keyframes rvmFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rvmFade{from{opacity:0}to{opacity:1}}
+@media (max-width:700px){.rvm-skills-grid{grid-template-columns:1fr !important}}
+.img-placeholder{background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;text-align:center;color:color-mix(in srgb,var(--color-text) 55%,transparent);font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;padding:12px}
+.blog-thumb{aspect-ratio:16/10;margin-bottom:16px;overflow:hidden;background:var(--color-surface);border:1px solid var(--color-divider)}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.proj-thumb{position:relative;aspect-ratio:16/10;margin-bottom:16px;overflow:hidden;background:var(--color-surface);border:1px solid var(--color-divider)}
+.proj-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.lang-btn{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;font-size:12px;font-weight:800;letter-spacing:.04em;background:transparent;border:1px solid var(--color-divider);border-radius:var(--radius-md);cursor:pointer;color:var(--color-text)}
+.lang-btn svg{flex:none;display:block}
+@media (max-width:760px){
+  #about{grid-template-columns:1fr !important}
+  #contact{grid-template-columns:1fr !important}
+}
+@media (max-width:560px){
+  .exp-row{grid-template-columns:1fr !important;gap:8px !important}
+}
+</style>
+</helmet>
+
+<div data-rvm-root="1" data-theme="{{ theme }}" lang="{{ language }}" style="background:var(--color-bg);color:var(--color-text);min-height:100vh;transition:background .3s ease,color .3s ease">
+
+<header style="position:sticky;top:0;z-index:40;background:var(--color-bg);border-bottom:2px solid var(--color-divider)">
+  <nav style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:16px clamp(20px,4vw,48px);max-width:1200px;margin:0 auto">
+    <a href="#home" style="font-family:var(--font-heading);font-weight:800;font-size:18px;color:var(--color-text);text-decoration:none;margin-right:auto">Robin von Malottki</a>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;font-size:14px">
+      <a href="#about" style="color:inherit;text-decoration:none">{{ i18n.navAbout }}</a>
+      <a href="#experience" style="color:inherit;text-decoration:none">{{ i18n.navExperience }}</a>
+      <a href="#projects" style="color:inherit;text-decoration:none">{{ i18n.navProjects }}</a>
+      <a href="#testimonials" style="color:inherit;text-decoration:none">{{ i18n.navTestimonials }}</a>
+      <a href="#skills" style="color:inherit;text-decoration:none">{{ i18n.navSkills }}</a>
+      <a href="#blog" style="color:inherit;text-decoration:none">{{ i18n.navBlog }}</a>
+      <a href="#contact" style="color:inherit;text-decoration:none">{{ i18n.navContact }}</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <button onclick="{{ setLangDe }}" aria-label="Deutsch" aria-pressed="{{ isLangDe }}" class="lang-btn" style="{{ langDeStyle }}"><svg width="22" height="13" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect width="5" height="1" y="1" fill="#DD0000"/><rect width="5" height="1" y="2" fill="#FFCE00"/></svg>Deutsch</button>
+      <button onclick="{{ setLangEn }}" aria-label="English" aria-pressed="{{ isLangEn }}" class="lang-btn" style="{{ langEnStyle }}"><svg width="26" height="13" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><clipPath id="gb-t"><path d="M30,15 h30v15zv15h-30z h-30v-15zv-15h30z"/></clipPath><path d="M0,0v30h60v-30z" fill="#00247d"/><path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30M60,0 0,30" clip-path="url(#gb-t)" stroke="#cf142b" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#cf142b" stroke-width="6"/></svg>English</button>
+    </div>
+    <button onclick="{{ toggleTheme }}" aria-label="{{ i18n.toggleTheme }}" style="width:36px;height:36px;flex:none;display:grid;place-items:center;background:transparent;border:1px solid var(--color-divider);border-radius:var(--radius-md);cursor:pointer;color:var(--color-text)">
+      <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </sc-if>
+      <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path></svg>
+      </sc-if>
+    </button>
+    <a href="#contact" class="btn btn-primary" style="font-size:13px">{{ i18n.navContact }}</a>
+  </nav>
+</header>
+
+<main>
+<section id="home" style="max-width:1200px;margin:0 auto;padding:clamp(60px,10vw,120px) clamp(20px,4vw,48px) clamp(40px,6vw,64px);display:flex;flex-direction:column;gap:28px">
+  <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-700);font-weight:700;animation:rvmFadeUp .6s ease both">Data Analyst · Data Science · Automation</span>
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <h1 style="font-size: clamp(38px,6vw,68px); line-height: 1.05; max-width: 25ch; margin: 0; animation: rvmFadeUp .6s ease .08s both">{{ i18n.heroH1 }}</h1>
+    <div style="display:flex;flex-direction:column;gap:6px;animation:rvmFadeUp .6s ease .16s both">
+      <p style="font-size:clamp(16px,1.6vw,19px);max-width:52ch;opacity:.82;margin:0"><strong style="color:var(--color-accent-700)">{{ i18n.heroSubDataLabel }}:</strong> {{ i18n.heroSubDataText }}</p>
+      <p style="font-size:clamp(16px,1.6vw,19px);max-width:52ch;opacity:.82;margin:0"><strong style="color:var(--color-accent-700)">{{ i18n.heroSubAutoLabel }}:</strong> {{ i18n.heroSubAutoText }}</p>
+    </div>
+  </div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;animation:rvmFadeUp .6s ease .24s both">
+    <a href="#projects" class="btn btn-primary">{{ i18n.viewProjects }}</a>
+    <a href="{{ links.resume }}" class="btn btn-secondary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+      {{ i18n.resume }}
+    </a>
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;animation:rvmFade .8s ease .35s both">
+    <sc-for list="{{ stack }}" as="s" hint-placeholder-count="6">
+      <span class="tag tag-outline">{{ s }}</span>
+    </sc-for>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="about" style="max-width: 1200px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,4vw,48px); display: grid; grid-template-columns: minmax(0,0.85fr) minmax(0,1.3fr) minmax(0,1fr); gap: clamp(28px,5vw,48px); align-items: center">
+  <figure class="grayscale" style="margin:0;border:2px solid var(--color-divider);aspect-ratio:4/5;overflow:hidden;align-self:start">
+    <img src="assets/robin-portrait.png" alt="Portrait von Robin von Malottki" style="width:100%;height:100%;object-fit:cover;display:block">
+  </figure>
+  <div>
+    <h6 style="color:var(--color-accent-700)">{{ i18n.navAbout }}</h6>
+    <h2 style="max-width:20ch">{{ i18n.aboutH2 }}</h2>
+    <p style="font-size:16px;opacity:.85;max-width:56ch">{{ i18n.aboutP1 }}</p>
+    <p style="font-size:16px;opacity:.85;max-width:56ch">{{ i18n.aboutP2 }}</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div class="card" style="background:transparent;border:1px solid var(--color-divider);padding:20px">
+      <div class="card-kicker">{{ i18n.focusKicker }}</div>
+      <div class="card-title" style="font-size:16px">{{ i18n.focusValue }}</div>
+    </div>
+    <div class="card" style="background:transparent;border:1px solid var(--color-divider);padding:20px">
+      <div class="card-kicker">{{ i18n.toolsKicker }}</div>
+      <div class="card-title" style="font-size:16px">{{ i18n.toolsValue }}</div>
+    </div>
+    <div class="card" style="background:transparent;border:1px solid var(--color-divider);padding:20px">
+      <div class="card-kicker">{{ i18n.approachKicker }}</div>
+      <div class="card-title" style="font-size:16px">{{ i18n.approachValue }}</div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="experience" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px)">
+  <h6 style="color:var(--color-accent-700)">{{ i18n.navExperience }}</h6>
+  <h2 style="margin-bottom:36px">{{ i18n.experienceH2 }}</h2>
+  <div style="display:flex;flex-direction:column">
+    <sc-for list="{{ experience }}" as="e" hint-placeholder-count="2">
+      <div class="exp-row" style="display:grid;grid-template-columns:140px 1fr;gap:24px;padding:24px 0;border-top:2px solid var(--color-divider)">
+        <div style="font-size:13px;color:color-mix(in srgb,var(--color-text) 55%,transparent);font-weight:700;letter-spacing:.02em">{{ e.period }}</div>
+        <div>
+          <h4 style="margin-bottom:4px">{{ e.role }}</h4>
+          <div style="font-size:13px;font-style:italic;opacity:.6;margin-bottom:10px">{{ e.org }}</div>
+          <ul style="margin:0;padding-left:18px;opacity:.85;font-size:15px;line-height:1.6">
+            <sc-for list="{{ e.bullets }}" as="b" hint-placeholder-count="2">
+              <li>{{ b }}</li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="projects" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px)">
+  <h6 style="color:var(--color-accent-700)">{{ i18n.navProjects }}</h6>
+  <h2 style="margin-bottom:8px">{{ i18n.projectsH2 }}</h2>
+  <p style="opacity:.7;max-width:56ch;margin-bottom:36px">{{ i18n.projectsSub }}</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
+      <div class="card elev-sm" style="background:var(--color-surface);padding:24px;justify-content:space-between;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-md)">
+        <div>
+          <div class="proj-thumb grayscale">
+            <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">
+          </div>
+          <div class="card-kicker">{{ p.category }}</div>
+          <div class="card-title" style="font-size:19px;margin:6px 0 10px">{{ p.title }}</div>
+          <p class="card-body" style="font-size:14px;opacity:.75">{{ p.problem }}</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin:14px 0">
+            <sc-for list="{{ p.tech }}" as="t" hint-placeholder-count="3">
+              <span class="tag tag-neutral">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <button onclick="{{ p.open }}" class="btn btn-ghost" style="padding-left:0;justify-content:flex-start">
+          {{ i18n.viewCaseStudy }}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="testimonials" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px)">
+  <h6 style="color:var(--color-accent-700)">{{ i18n.navTestimonials }}</h6>
+  <h2 style="margin-bottom:36px">{{ i18n.testimonialsH2 }}</h2>
+  <div style="position:relative;max-width:720px;margin:0 auto" onmouseenter="{{ pauseTestimonials }}" onmouseleave="{{ resumeTestimonials }}" onfocus="{{ pauseTestimonials }}" onblur="{{ resumeTestimonials }}">
+    <div class="card elev-sm" style="background:var(--color-surface);padding:clamp(28px,5vw,44px);min-height:240px;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--color-accent-700)" style="opacity:.35;flex:none"><path d="M9.5 7C6.5 7 4 9.5 4 12.8c0 2.9 2 5.2 4.6 5.2.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-3.9 3.6l.9 1.5c3.6-1.2 6.3-4.3 6.3-8.7C13 9.7 11.4 7 9.5 7zm10 0c-3 0-5.5 2.5-5.5 5.8 0 2.9 2 5.2 4.6 5.2.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-3.9 3.6l.9 1.5c3.6-1.2 6.3-4.3 6.3-8.7C23 9.7 21.4 7 19.5 7z"></path></svg>
+      <p style="font-size:clamp(16px,1.8vw,19px);line-height:1.6;opacity:.9;margin:0;font-style:italic">{{ activeTestimonial.quote }}</p>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:48px;height:48px;flex:none;background:var(--color-bg);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:800;font-size:14px;color:var(--color-accent-700)">{{ activeTestimonial.initials }}</div>
+        <div>
+          <div style="font-weight:700;font-size:15px">{{ activeTestimonial.name }}</div>
+          <div style="font-size:13px;opacity:.65">{{ activeTestimonial.role }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:8px;margin-top:20px">
+      <sc-for list="{{ testimonials }}" as="tm" hint-placeholder-count="2">
+        <button onclick="{{ tm.select }}" aria-label="{{ tm.label }}" aria-current="{{ tm.current }}" style="{{ tm.dotStyle }}"></button>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="skills" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px)">
+  <h6 style="color:var(--color-accent-700)">{{ i18n.navSkills }}</h6>
+  <h2 style="margin-bottom:36px">{{ i18n.skillsH2 }}</h2>
+  <div class="rvm-skills-grid" style="display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--color-divider);border-top-width:0;border-left-width:0">
+    <sc-for list="{{ skills }}" as="cat" hint-placeholder-count="6">
+      <div style="background:var(--color-bg);padding:22px 20px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;height:100%;border-top:2px solid var(--color-divider);border-left:2px solid var(--color-divider)">
+        <h5 style="margin:0">{{ cat.name }}</h5>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-content:flex-start">
+          <sc-for list="{{ cat.items }}" as="it" hint-placeholder-count="4">
+            <span class="tag tag-accent">{{ it }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="education" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px">
+  <div>
+    <h6 style="color:var(--color-accent-700)">{{ i18n.educationKicker }}</h6>
+    <h2 style="margin-bottom:20px">{{ i18n.educationH2 }}</h2>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ education }}" as="ed" hint-placeholder-count="1">
+        <div style="border-top:2px solid var(--color-divider);padding-top:14px">
+          <div style="font-weight:700">{{ ed.title }}</div>
+          <div style="font-size:13px;opacity:.65">{{ ed.org }} · {{ ed.period }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div>
+    <h6 style="color:var(--color-accent-700)">{{ i18n.certKicker }}</h6>
+    <h2 style="margin-bottom:20px">{{ i18n.certH2 }}</h2>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ certifications }}" as="c" hint-placeholder-count="1">
+        <div style="border-top:2px solid var(--color-divider);padding-top:14px">
+          <div style="font-weight:700">{{ c.title }}</div>
+          <div style="font-size:13px;opacity:.65">{{ c.meta }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="blog" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px)">
+  <h6 style="color:var(--color-accent-700)">{{ i18n.navBlog }}</h6>
+  <h2 style="margin-bottom:8px">{{ i18n.blogH2 }}</h2>
+  <p style="opacity:.7;max-width:56ch;margin-bottom:36px">{{ i18n.blogSub }}</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+    <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
+      <a href="{{ post.href }}" target="_blank" rel="noopener" class="card" style="background:var(--color-surface);padding:22px;text-decoration:none;color:inherit;transition:transform .2s ease" style-hover="transform:translateY(-4px)">
+        <div class="blog-thumb grayscale">
+          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+        </div>
+        <div class="card-kicker">{{ post.tag }}</div>
+        <div class="card-title" style="font-size:17px;margin-bottom:8px">{{ post.title }} <span style="font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 55%,transparent)">· {{ post.claps }} Claps</span></div>
+        <p class="card-body">{{ post.excerpt }}</p>
+        <div class="card-meta">{{ i18n.readMore }}</div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto">
+
+<section id="contact" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,6vw,64px)">
+  <div>
+    <h6 style="color:var(--color-accent-700)">{{ i18n.navContact }}</h6>
+    <h2 style="max-width:16ch">{{ i18n.contactH2 }}</h2>
+    <p style="opacity:.8;max-width:44ch;margin-bottom:24px">{{ i18n.contactSub }}</p>
+    <a href="mailto:{{ links.email }}" class="btn btn-primary" style="margin-bottom:24px">{{ links.email }}</a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <sc-for list="{{ socials }}" as="soc" hint-placeholder-count="5">
+        <a href="{{ soc.href }}" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size:13px">{{ soc.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+  <form style="display:flex;flex-direction:column;gap:16px" onsubmit="{{ handleSubmit }}">
+    <div class="field">
+      <label for="rvm-name">{{ i18n.formName }}</label>
+      <input class="input" id="rvm-name" type="text" required="">
+    </div>
+    <div class="field">
+      <label for="rvm-email">{{ i18n.formEmail }}</label>
+      <input class="input" id="rvm-email" type="email" required="">
+    </div>
+    <div class="field">
+      <label for="rvm-msg">{{ i18n.formMessage }}</label>
+      <textarea class="input" id="rvm-msg" rows="4" required=""></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">{{ i18n.formSubmit }}</button>
+    <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+      <p style="font-size:13px;color:var(--color-accent-700);margin:0">{{ i18n.formSubmittedNote }}</p>
+    </sc-if>
+  </form>
+</section>
+</main>
+
+<footer style="border-top:2px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:24px clamp(20px,4vw,48px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;opacity:.65">
+    <span>© 2026 Robin von Malottki</span>
+    <a href="#home" style="color:inherit;text-decoration:none">{{ i18n.backToTop }}</a>
+  </div>
+</footer>
+
+<sc-if value="{{ openProjectData }}" hint-placeholder-val="{{ false }}">
+  <div class="dialog-backdrop" onclick="{{ closeProject }}" style="align-items:flex-start;padding-top:6vh;overflow-y:auto">
+    <div class="dialog" onclick="{{ stop }}" style="width:min(680px,100%);max-height:85vh;overflow-y:auto;text-align:left">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div>
+          <div class="card-kicker">{{ openProjectData.category }}</div>
+          <div class="dialog-title">{{ openProjectData.title }}</div>
+        </div>
+        <button onclick="{{ closeProject }}" class="btn btn-icon" aria-label="{{ i18n.close }}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="img-placeholder" style="aspect-ratio:16/9;margin:8px 0">{{ openProjectData.thumbLabel }}</div>
+      <p style="font-size:15px;font-style:italic;opacity:.85;margin:0">{{ openProjectData.hook }}</p>
+      <div>
+        <h6 style="color:var(--color-accent-700)">{{ i18n.dialogSituation }}</h6>
+        <p style="font-size:14px;opacity:.85;margin:0">{{ openProjectData.problemLong }}</p>
+      </div>
+      <div>
+        <h6 style="color:var(--color-accent-700)">{{ i18n.dialogApproach }}</h6>
+        <p style="font-size:14px;opacity:.85;margin:0">{{ openProjectData.solutionLong }}</p>
+      </div>
+      <div>
+        <h6 style="color:var(--color-accent-700)">{{ i18n.dialogProcess }}</h6>
+        <ol style="margin:0;padding-left:18px;font-size:14px;opacity:.85;line-height:1.6">
+          <sc-for list="{{ openProjectData.steps }}" as="s" hint-placeholder-count="3">
+            <li>{{ s }}</li>
+          </sc-for>
+        </ol>
+      </div>
+      <div>
+        <h6 style="color:var(--color-accent-700)">{{ i18n.dialogResult }}</h6>
+        <p style="font-size:14px;opacity:.85;margin:0">{{ openProjectData.resultLong }}</p>
+      </div>
+      <div>
+        <h6 style="color:var(--color-accent-700)">{{ i18n.dialogTech }}</h6>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ openProjectData.tech }}" as="t" hint-placeholder-count="3">
+            <span class="tag tag-neutral">{{ t }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div class="dialog-actions">
+        <a href="{{ openProjectData.github }}" target="_blank" rel="noopener" class="btn btn-secondary">{{ i18n.dialogViewCode }}</a>
+        <sc-if value="{{ openProjectData.demo }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ openProjectData.demo }}" target="_blank" rel="noopener" class="btn btn-primary">{{ i18n.dialogLiveDemo }}</a>
+        </sc-if>
+        <sc-if value="{{ openProjectData.internal }}" hint-placeholder-val="{{ false }}">
+          <span class="tag tag-outline" style="align-self:center">{{ i18n.dialogInternalNote }}</span>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: 'light', lang: 'en', openId: null, submitted: false, testimonialIndex: 0 };
+  testimonialTimer = null;
+  testimonialIntervalMs = 6000;
+
+  stackByLang = {
+    de: ['Tableau', 'SQL', 'Python', 'ML-Modelle', 'n8n', 'BigQuery'],
+    en: ['Tableau', 'SQL', 'Python', 'ML Models', 'n8n', 'BigQuery']
+  };
+
+  translations = {
+    de: {
+      navAbout: 'Über mich', navExperience: 'Erfahrung', navProjects: 'Projekte', navTestimonials: 'Referenzen', navSkills: 'Skills', navBlog: 'Blog', navContact: 'Kontakt',
+      toggleTheme: 'Farbmodus umschalten', toggleLang: 'Sprache wechseln', showTestimonial: 'Testimonial anzeigen',
+      heroH1: 'Daten verstehen. Arbeit automatisieren.',
+      heroSubDataLabel: 'Daten', heroSubDataText: 'aus Rohdaten werden verwertbare Erkenntnisse, Prognosen und Entscheidungshilfen — durch Analytics, Dashboards, Machine Learning und Data Engineering.',
+      heroSubAutoLabel: 'Automatisierung', heroSubAutoText: 'wiederkehrende manuelle Arbeit beseitigen, ob mit Daten oder ohne, für verlässliche, effiziente Workflows.',
+      viewProjects: 'Projekte ansehen', resume: 'Lebenslauf',
+      aboutH2: 'Aus Excel-Verwaltern werden Daten-Konsumenten.',
+      aboutP1: 'Ich bin Data Analyst mit Schwerpunkt auf verwertbaren Erkenntnissen aus Daten. Von dort gehe ich zwei Schritte weiter: mit ML-Modellen für tiefere, statistisch fundierte Einblicke in Prozesse und Zusammenhänge, und mit n8n-/AI-gestützten Automatisierungen, die diese Erkenntnisse verlässlich dorthin liefern, wo sie gebraucht werden — statt in manuell gepflegten Tabellen zu versickern.',
+      aboutP2: 'Ich arbeite gern nah an den Fachbereichen — vom Anforderungsgespräch bis zum produktiven, überwachten Workflow — und übersetze wiederkehrende manuelle Prozesse in verlässliche, dokumentierte Systeme.',
+      focusKicker: 'Fokus', focusValue: 'Datenanalyse · ML-Modelle · Workflow-Automatisierung',
+      toolsKicker: 'Werkzeuge', toolsValue: 'Tableau · SQL · Python · n8n',
+      approachKicker: 'Ansatz', approachValue: 'Von der Analyse zum automatisierten, überwachten Workflow',
+      experienceH2: 'Stationen',
+      projectsH2: 'Ausgewählte Case Studies',
+      projectsSub: 'Fünf Automatisierungen, die manuelle Prozesse durch verlässliche, produktive Systeme ersetzt haben.',
+      viewCaseStudy: 'Case Study ansehen',
+      testimonialsH2: 'Was Kolleg:innen und Kunden sagen',
+      skillsH2: 'Technischer Stack',
+      educationKicker: 'Ausbildung', educationH2: 'Bildungsweg', certKicker: 'Zertifikate', certH2: 'Nachweise',
+      blogH2: 'Notizen aus der Praxis',
+      blogSub: 'Artikel zu Data-Engineering- und Automatisierungsthemen — veröffentlicht bei Towards Data Science / Towards Data Engineering auf Medium.',
+      readMore: 'Weiterlesen auf Medium →',
+      contactH2: 'Lassen Sie uns über Ihr Datenproblem sprechen.',
+      contactSub: 'Offen für Anfragen zu Data-Engineering- und Automatisierungsprojekten sowie neue Rollen im Bereich AI Automation.',
+      formName: 'Name', formEmail: 'E-Mail', formMessage: 'Nachricht', formSubmit: 'Nachricht senden',
+      formSubmittedNote: 'Danke! Formular ist als Platzhalter verbunden — für den Live-Betrieb an Formspree/Resend anbinden.',
+      backToTop: 'Nach oben ↑',
+      dialogSituation: 'Die Ausgangslage', dialogApproach: 'Der Ansatz', dialogProcess: 'Ablauf', dialogResult: 'Das Ergebnis', dialogTech: 'Technologien',
+      dialogViewCode: 'Code ansehen', dialogLiveDemo: 'Live Demo', dialogInternalNote: 'Internes / Kundenprojekt — kein öffentlicher Demo-Zugang', close: 'Schließen'
+    },
+    en: {
+      navAbout: 'About', navExperience: 'Experience', navProjects: 'Projects', navTestimonials: 'Testimonials', navSkills: 'Skills', navBlog: 'Blog', navContact: 'Contact',
+      toggleTheme: 'Toggle color mode', toggleLang: 'Switch language', showTestimonial: 'Show testimonial',
+      heroH1: 'Understand data. Automate the work.',
+      heroSubDataLabel: 'Data', heroSubDataText: 'turning raw numbers into insight, forecasts, and decision support — through analytics, dashboards, machine learning, and data engineering.',
+      heroSubAutoLabel: 'Automation', heroSubAutoText: 'eliminating repeatable manual work, whether it touches data or not, with efficient, reliable workflows.',
+      viewProjects: 'View projects', resume: 'Resume',
+      aboutH2: 'From spreadsheet managers to data consumers.',
+      aboutP1: "I'm a Data Analyst focused on turning data into actionable insight. From there I go two steps further: using ML models for deeper, statistically grounded understanding of processes and relationships, and n8n-/AI-powered automation that reliably delivers those insights where they're needed — instead of letting them get lost in manually maintained spreadsheets.",
+      aboutP2: 'I like working closely with the business side — from the initial requirements conversation to a live, monitored workflow — and turning recurring manual processes into reliable, documented systems.',
+      focusKicker: 'Focus', focusValue: 'Data Analysis · ML Models · Workflow Automation',
+      toolsKicker: 'Tools', toolsValue: 'Tableau · SQL · Python · n8n',
+      approachKicker: 'Approach', approachValue: 'From analysis to an automated, monitored workflow',
+      experienceH2: 'Timeline',
+      projectsH2: 'Selected case studies',
+      projectsSub: 'Five automations that replaced manual processes with reliable, production systems.',
+      viewCaseStudy: 'View case study',
+      testimonialsH2: 'What colleagues and clients say',
+      skillsH2: 'Technical stack',
+      educationKicker: 'Education', educationH2: 'Academic background', certKicker: 'Certificates', certH2: 'Credentials',
+      blogH2: 'Notes from the field',
+      blogSub: 'Articles on data engineering and automation topics — published on Towards Data Science / Towards Data Engineering on Medium.',
+      readMore: 'Read more on Medium →',
+      contactH2: "Let's talk about your data problem.",
+      contactSub: 'Open to inquiries about data engineering and automation projects, as well as new roles in AI automation.',
+      formName: 'Name', formEmail: 'Email', formMessage: 'Message', formSubmit: 'Send message',
+      formSubmittedNote: 'Thanks! This form is wired as a placeholder — connect it to Formspree/Resend for production use.',
+      backToTop: 'Back to top ↑',
+      dialogSituation: 'The situation', dialogApproach: 'The approach', dialogProcess: 'Process', dialogResult: 'The result', dialogTech: 'Technologies',
+      dialogViewCode: 'View code', dialogLiveDemo: 'Live Demo', dialogInternalNote: 'Internal / client project — no public demo access', close: 'Close'
+    }
+  };
+
+  links = {
+    email: 'contact@robinvm.de',
+    resume: '#'
+  };
+
+  socials = [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/robin-von-malottki-a63529224' },
+    { label: 'GitHub', href: 'https://github.com/Robinvm96' },
+    { label: 'n8n Creator', href: 'https://n8n.io/creators/robinvm/' },
+    { label: 'Medium', href: 'https://medium.com/@robinvm' },
+    { label: 'HackerRank', href: 'https://www.hackerrank.com/profile/robinvm' },
+    { label: 'Codewars', href: 'https://www.codewars.com/users/Robinvm965' }
+  ];
+
+  experienceData = [
+    {
+      period: { de: '06/2025 — heute', en: '06/2025 — present' },
+      role: { de: 'Data Analyst — Data and Analytics Engineering', en: 'Data Analyst — Data and Analytics Engineering' },
+      org: { de: 'Engel und Völkers', en: 'Engel und Völkers' },
+      bullets: {
+        de: [
+          'Rohdaten aus Quellsystemen in dokumentierte dbt-Modelle in BigQuery überführt, inklusive Tests und Dokumentation',
+          'Systemübergreifende, automatisierte Datenqualitätsprüfung mit gezielter Benachrichtigung der Verantwortlichen eingeführt',
+          'Manuell gepflegtes Schatten-CRM durch tägliche Auslieferung direkt aus dem Data Warehouse abgelöst',
+          'Automatisierte Umsatzprognose produktiv gesetzt, ersetzt manuelle Schätzungen',
+          'KI-Review-Schritt in den Git-Workflow eingebaut: führt geänderten Code aus, testet und bewertet Query-Kosten',
+          'Enge Zusammenarbeit mit Operations- und Sales-Stakeholdern, überwiegend zu CRM-Daten'
+        ],
+        en: [
+          'Model raw data from source systems into documented dbt models in BigQuery, with tests and documentation',
+          'Introduced cross-system, automated data quality checks with targeted alerting to the responsible owners',
+          'Replaced a manually maintained shadow CRM with daily delivery straight from the data warehouse',
+          'Put automated revenue forecasting into production, replacing manual estimates',
+          'Built an AI review step into the Git workflow: runs changed code, executes tests, evaluates query cost',
+          'Work closely with Operations and Sales stakeholders, largely on CRM data'
+        ]
+      }
+    },
+    {
+      period: { de: '07/2024 — 05/2025', en: '07/2024 — 05/2025' },
+      role: { de: 'Weiterbildung und Publikationen', en: 'Professional Development and Publications' },
+      org: { de: '', en: '' },
+      bullets: {
+        de: [
+          'Zertifizierungen Microsoft Azure Data Engineer und Databricks Lakehouse Fundamentals abgeschlossen',
+          'Drei Artikel bei Towards Data Science veröffentlicht, insgesamt über 10.000 Mal gelesen'
+        ],
+        en: [
+          'Completed the Microsoft Azure Data Engineer and Databricks Lakehouse Fundamentals certifications',
+          'Published three articles with Towards Data Science, read over 10,000 times in total'
+        ]
+      }
+    },
+    {
+      period: { de: '2021 — 07/2024', en: '2021 — 07/2024' },
+      role: { de: 'Data Consultant', en: 'Data Consultant' },
+      org: { de: 'The Information Lab · Kunde: internationaler Pharmakonzern', en: 'The Information Lab · Client: international pharmaceutical company' },
+      bullets: {
+        de: [
+          'Internes Finanz-Reporting mit externen Markt- und Verschreibungsdaten für einen Medikamenten-Launch zusammengeführt',
+          'Regionen mit geringem Absatz und deren Ursachen für Marketing und Sales identifiziert',
+          'Datenpipelines mit KNIME Business Hub vollständig automatisiert und Dashboard-Landschaft konsolidiert'
+        ],
+        en: [
+          'Combined internal financial reporting with external market and prescription data for a drug launch',
+          'Identified underperforming regions and their causes for Marketing and Sales',
+          'Fully automated data pipelines with KNIME Business Hub and consolidated the dashboard landscape'
+        ]
+      }
+    },
+    {
+      period: { de: '2016 — 2021', en: '2016 — 2021' },
+      role: { de: 'Gründer und Nachhilfelehrer', en: 'Founder and Tutor' },
+      org: { de: 'VM Nachhilfe UG', en: 'VM Nachhilfe UG' },
+      bullets: {
+        de: [
+          'Nachhilfeunternehmen aufgebaut und geführt: Kundenakquise, Marketing, Website und Lernmaterialien',
+          'Über fünf Jahre Mathematik für Schüler der Sekundarstufe und Studierende unterrichtet'
+        ],
+        en: [
+          'Built and ran a tutoring business: client acquisition, marketing, website and learning materials',
+          'Taught mathematics to secondary school and university students for over five years'
+        ]
+      }
+    }
+  ];
+
+  projectsData = [
+    {
+      id: 1,
+      category: 'Data Platform',
+      thumbLabel: { de: 'Screenshot: n8n-Workflow · BigQuery-Modell', en: 'Screenshot: n8n workflow · BigQuery model' },
+      image: 'https://images.pexels.com/photos/34293526/pexels-photo-34293526.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      title: { de: 'Ablösung eines Schatten-CRM', en: 'Replacing a shadow CRM' },
+      problem: { de: 'Teamleads pflegten täglich eine Excel-Liste mit hunderten Spalten von Hand, obwohl der Großteil der Daten längst im CRM stand.', en: 'Team leads manually maintained a daily Excel list with hundreds of columns, even though most of the data already lived in the CRM.' },
+      solution: { de: 'Automatisierte Extraktion über die CRM-API, Modellierung in dbt/BigQuery und tägliche Auslieferung direkt aus dem Data Warehouse via n8n.', en: 'Automated extraction via the CRM API, modeling in dbt/BigQuery, and daily delivery straight from the data warehouse via n8n.' },
+      hook: { de: 'Ein Blick hinter die Kulissen, wie aus einer Excel-Verwaltungsroutine ein automatisierter, täglich aktueller Datenfluss wurde.', en: 'A behind-the-scenes look at how an Excel maintenance routine became an automated, daily-fresh data flow.' },
+      problemLong: { de: 'Jede Woche pflegten mehrere Teamleads unabhängig voneinander eine Excel-Datei mit hunderten Spalten — Kontakte, Status, Historien —, obwohl praktisch alle diese Informationen bereits im CRM-System vorlagen. Die Pflege kostete Zeit, führte zu Abweichungen zwischen den einzelnen Listen und band Kapazität, die eigentlich für die Arbeit mit Kunden gedacht war.', en: 'Every week, several team leads independently maintained an Excel file with hundreds of columns — contacts, status, history — even though virtually all of that information already existed in the CRM system. Maintaining it cost time, caused discrepancies between the individual lists, and tied up capacity meant for working with customers.' },
+      solutionLong: { de: 'Statt die Liste weiter von Hand zu pflegen, habe ich die CRM-Daten direkt an der Quelle abgeholt: Ein n8n-Workflow ruft die CRM-API täglich automatisiert ab, die Rohdaten landen in BigQuery und werden dort mit dbt in ein sauberes, dokumentiertes Modell überführt. Teamleads bekommen die fertige Sicht seitdem automatisch bereitgestellt, statt sie selbst zusammenzutragen.', en: 'Instead of continuing to maintain the list by hand, I pulled the CRM data directly from the source: an n8n workflow calls the CRM API automatically every day, the raw data lands in BigQuery, and dbt transforms it into a clean, documented model there. Team leads have since received the finished view automatically, instead of compiling it themselves.' },
+      steps: {
+        de: ['CRM-API an n8n angebunden und täglichen Extraktions-Workflow eingerichtet', 'Rohdaten in BigQuery geladen und mit dbt in ein sauberes, dokumentiertes Modell überführt', 'Teamleads erhalten die fertige Sicht automatisch statt sie manuell zu pflegen'],
+        en: ['Connected the CRM API to n8n and set up a daily extraction workflow', 'Loaded raw data into BigQuery and transformed it into a clean, documented model with dbt', 'Team leads now receive the finished view automatically instead of maintaining it manually']
+      },
+      resultLong: { de: 'Die Excel-Liste ist komplett entfallen. Aus Leuten, die Daten manuell verwaltet haben, wurden Leute, die sie einfach nutzen — die Zahlen sind jeden Tag aktuell, ohne dass jemand dafür etwas tun muss.', en: 'The Excel list is gone entirely. People who used to manage data by hand became people who simply use it — the numbers are up to date every day, with no one having to do anything for it.' },
+      tech: ['n8n', 'BigQuery', 'dbt', 'CRM-API'],
+      github: 'https://github.com/Robinvm96',
+      internal: true
+    },
+    {
+      id: 2,
+      category: 'Data Quality',
+      thumbLabel: { de: 'Screenshot: Regelbasierter Datenqualitäts-Check', en: 'Screenshot: rule-based data quality check' },
+      image: 'https://images.pexels.com/photos/37539911/pexels-photo-37539911.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      title: { de: 'Automatisierte Datenqualitätsprüfung', en: 'Automated data quality checks' },
+      problem: { de: 'Inkonsistenzen in den Beständen fielen erst auf, wenn jemand zufällig über sie stolperte.', en: 'Inconsistencies in inventory only surfaced when someone happened to stumble across them.' },
+      solution: { de: 'n8n-Workflow, der Bestände systemübergreifend gegen BigQuery prüft und Verantwortliche gezielt per SQL-Regel benachrichtigt.', en: 'An n8n workflow that checks inventory across systems against BigQuery and notifies the responsible person via a targeted SQL rule.' },
+      hook: { de: 'Wie aus zufällig entdeckten Dateninkonsistenzen ein System wurde, das Abweichungen von selbst findet und meldet.', en: 'How randomly discovered data inconsistencies became a system that finds and reports deviations on its own.' },
+      problemLong: { de: 'Bestände wurden in mehreren Systemen parallel geführt, ohne dass jemand regelmäßig prüfte, ob sie noch zusammenpassen. Inkonsistenzen fielen meist zufällig auf — wenn jemand beim Blick in ein Dashboard etwas Ungewöhnliches bemerkte. Bis dahin konnten Abweichungen tagelang unentdeckt bleiben.', en: 'Inventory was maintained in parallel across multiple systems, with no one regularly checking whether they still matched. Inconsistencies were mostly discovered by chance — when someone noticed something unusual while looking at a dashboard. Until then, discrepancies could go unnoticed for days.' },
+      solutionLong: { de: 'Ich habe SQL-Regeln definiert, die erwartete Bestände zwischen den Quellsystemen und BigQuery gegeneinander abgleichen, und diese Prüfung über einen n8n-Workflow in festem Rhythmus automatisiert laufen lassen. Bei einer Abweichung wird nicht das ganze Team informiert, sondern gezielt die Person, die für den betroffenen Bereich verantwortlich ist.', en: "I defined SQL rules that reconcile expected inventory between the source systems and BigQuery, and automated that check on a fixed schedule via an n8n workflow. When a discrepancy occurs, it's not the whole team that gets notified — it's specifically the person responsible for the affected area." },
+      steps: {
+        de: ['SQL-Regeln definiert, die erwartete Bestände zwischen Systemen und BigQuery abgleichen', 'n8n-Workflow prüft die Regeln in festem Rhythmus automatisch', 'Bei Abweichung wird gezielt der zuständige Verantwortliche benachrichtigt, nicht das ganze Team'],
+        en: ['Defined SQL rules that reconcile expected inventory between systems and BigQuery', 'An n8n workflow checks the rules automatically on a fixed schedule', 'On a discrepancy, the responsible person is notified directly, not the whole team']
+      },
+      resultLong: { de: 'Abweichungen werden heute proaktiv erkannt, statt zufällig entdeckt zu werden — und landen automatisch bei der richtigen Person, bevor sie sich auf nachgelagerte Reports auswirken.', en: 'Discrepancies are now caught proactively instead of being found by chance — and land automatically with the right person before they affect downstream reports.' },
+      tech: ['n8n', 'BigQuery', 'SQL'],
+      github: 'https://github.com/Robinvm96',
+      internal: true
+    },
+    {
+      id: 3,
+      category: 'Machine Learning',
+      thumbLabel: { de: 'Screenshot: Prognose-Dashboard in Tableau', en: 'Screenshot: forecast dashboard in Tableau' },
+      image: 'https://images.pexels.com/photos/12235766/pexels-photo-12235766.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      title: { de: 'Umsatzprognose per Machine Learning', en: 'Revenue forecasting with machine learning' },
+      problem: { de: 'Prognosen beruhten auf manuellen Einschätzungen — Predictive Modeling gab es im Analytics-Bereich nicht.', en: 'Forecasts relied on manual estimates — there was no predictive modeling in the analytics function.' },
+      solution: { de: 'Prognosemodelle in Python entwickelt, über n8n als automatisierten, geplanten Prozess gehostet und Ergebnisse nach Tableau ausgeliefert.', en: 'Developed forecasting models in Python, hosted as an automated, scheduled process via n8n, with results delivered to Tableau.' },
+      hook: { de: 'Von der Bauchgefühl-Schätzung zum automatisierten, produktiv laufenden Prognosemodell.', en: 'From gut-feeling estimates to an automated, production forecasting model.' },
+      problemLong: { de: 'Umsatzprognosen basierten auf manuellen Einschätzungen einzelner Personen — Predictive Modeling gab es im Analytics-Bereich bis dahin nicht. Das machte Prognosen schwer nachvollziehbar und abhängig von Einzelpersonen.', en: "Revenue forecasts were based on individual people's manual estimates — there was no predictive modeling in the analytics function until then. That made forecasts hard to trace and dependent on individual people." },
+      solutionLong: { de: 'Ich habe historische Umsatzdaten aufbereitet und ein Prognosemodell in Python trainiert. Statt es nur einmalig auszuführen, läuft es über n8n als geplanter, wiederkehrender Job vollautomatisch — die Ergebnisse werden anschließend direkt nach Tableau ausgeliefert und stehen dem Analytics-Team dort zur Verfügung.', en: 'I prepared historical revenue data and trained a forecasting model in Python. Rather than running it just once, it now runs fully automatically via n8n as a scheduled, recurring job — the results are then delivered directly to Tableau and made available to the analytics team there.' },
+      steps: {
+        de: ['Historische Umsatzdaten aufbereitet und Prognosemodell in Python trainiert', 'Modell über n8n als geplanten, wiederkehrenden Job produktiv gehostet', 'Prognosen automatisch nach Tableau ausgeliefert und dort für Analytics nutzbar gemacht'],
+        en: ['Prepared historical revenue data and trained a forecasting model in Python', 'Hosted the model in production via n8n as a scheduled, recurring job', 'Forecasts are delivered automatically to Tableau and made usable for analytics there']
+      },
+      resultLong: { de: 'An die Stelle einmaliger, manueller Schätzungen ist ein regelmäßiger, automatisierter Prognoseprozess getreten, der ohne weiteres Zutun aktuell bleibt.', en: 'One-off manual estimates have been replaced by a regular, automated forecasting process that stays current without further effort.' },
+      tech: ['Python', 'n8n', 'Claude', 'Tableau'],
+      github: 'https://github.com/Robinvm96',
+      internal: true
+    },
+    {
+      id: 4,
+      category: 'Analytics Consulting',
+      thumbLabel: { de: 'Screenshot: Launch-Dashboard in Tableau', en: 'Screenshot: launch dashboard in Tableau' },
+      image: 'https://images.pexels.com/photos/8392541/pexels-photo-8392541.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      title: { de: 'Medical Launch Dashboard', en: 'Medical Launch Dashboard' },
+      problem: { de: 'Marketing und Sales brauchten eine gemeinsame Entscheidungsgrundlage für einen Medikamenten-Launch.', en: 'Marketing and Sales needed a shared basis for decisions for a drug launch.' },
+      solution: { de: 'Zusammenführung interner Finanzdaten mit externen Markt- und Verschreibungsdaten in einem KNIME-Workflow, visualisiert in Tableau.', en: 'Combined internal financial data with external market and prescription data in a KNIME workflow, visualized in Tableau.' },
+      hook: { de: 'Wie interne und externe Datenquellen zu einer gemeinsamen Entscheidungsgrundlage für Marketing und Sales wurden.', en: 'How internal and external data sources became a shared decision basis for Marketing and Sales.' },
+      problemLong: { de: 'Für den Launch eines Medikaments brauchten Marketing und Sales eine gemeinsame Sicht auf die Lage — lagen bislang aber getrennt vor: interne Finanzzahlen auf der einen, externe Markt- und Verschreibungsdaten auf der anderen Seite. Ohne eine zusammengeführte Sicht blieb unklar, welche Regionen hinter den Erwartungen zurückblieben und warum.', en: 'For a drug launch, Marketing and Sales needed a shared view of the situation — but it existed in two separate pieces: internal financial figures on one side, external market and prescription data on the other. Without a combined view, it was unclear which regions were falling short of expectations and why.' },
+      solutionLong: { de: 'Ich habe beide Datenquellen in einem KNIME-Workflow zusammengeführt und daraus ein gemeinsames Datenmodell für Marketing und Sales aufgebaut. Die Ergebnisse wurden in Tableau visualisiert, sodass beide Teams auf derselben Grundlage arbeiten konnten.', en: 'I combined both data sources in a KNIME workflow and built a shared data model for Marketing and Sales from it. The results were visualized in Tableau so both teams could work from the same basis.' },
+      steps: {
+        de: ['Interne Finanzdaten und externe Markt-/Verschreibungsdaten in KNIME zusammengeführt', 'Gemeinsames Datenmodell für Marketing und Sales aufgebaut', 'Ergebnisse in Tableau visualisiert, inklusive Regionen mit geringem Absatz und deren Ursachen'],
+        en: ['Combined internal financial data and external market/prescription data in KNIME', 'Built a shared data model for Marketing and Sales', 'Visualized results in Tableau, including underperforming regions and their causes']
+      },
+      resultLong: { de: 'Regionen mit geringem Absatz und ihre möglichen Ursachen wurden für Marketing und Sales sichtbar — als gemeinsame, nachvollziehbare Grundlage statt getrennter Tabellen.', en: 'Underperforming regions and their likely causes became visible to Marketing and Sales — as a shared, traceable basis instead of separate spreadsheets.' },
+      tech: ['KNIME', 'Tableau'],
+      github: 'https://github.com/Robinvm96',
+      internal: true
+    },
+    {
+      id: 5,
+      category: 'Content Automation',
+      thumbLabel: { de: 'Screenshot: Erklärvideo-Pipeline', en: 'Screenshot: explainer video pipeline' },
+      image: 'https://images.pexels.com/photos/12715624/pexels-photo-12715624.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      title: { de: 'Automatisierte Erstellung von Erklärvideos', en: 'Automated explainer video production' },
+      problem: { de: 'Promotion, Erklärung und Ausbildung in einem Format zusammenzubringen kostete bei manueller Produktion viel Zeit für Skript, Vertonung und Schnitt.', en: 'Combining promotion, explanation, and instruction in one format took a lot of manual effort for scripting, voiceover, and editing.' },
+      solution: { de: 'Skript mit Claude erstellt, Screen-Recording inklusive Mausaktionen und Zeitpunkten erfasst, Vertonung per ElevenLabs-API generiert und automatisch synchron zum Screen-Ablauf zusammengeschnitten — inklusive Intro.', en: 'Script written with Claude, screen recording captured with mouse actions and timestamps, voiceover generated via the ElevenLabs API, and automatically cut in sync with the screen recording — including an intro.' },
+      hook: { de: 'Wie Skript, Vertonung und Schnitt eines Erklärvideos automatisiert statt manuell entstehen.', en: 'How the script, voiceover, and editing of an explainer video are created automatically instead of manually.' },
+      problemLong: { de: 'Erklärvideos sollen gleichzeitig Werbung, Erklärung und Anleitung sein — bei manueller Produktion bedeutet das viel Aufwand für Skript, Sprachaufnahme und Schnitt, für jedes einzelne Video aufs Neue.', en: 'Explainer videos are meant to be advertising, explanation, and instructions all at once — with manual production, that means a lot of effort for script, voice recording, and editing, for every single video, every time.' },
+      solutionLong: { de: 'Ich lasse das Skript und den Sprechertext mit Claude erstellen und nehme parallel den Bildschirm auf, wobei Mausposition, Zeitpunkt und Aktion pro Schritt erfasst werden. Die Vertonung wird per ElevenLabs-API generiert, während im Hintergrund der Screen-Ablauf abläuft — anschließend werden Ton- und Screen-Aufnahme automatisiert synchron geschnitten und mit Intro zum fertigen Video zusammengesetzt.', en: 'I have the script and voiceover text written with Claude while recording the screen in parallel, capturing mouse position, timing, and action at each step. The voiceover is generated via the ElevenLabs API while the screen recording plays in the background — afterward, the audio and screen recording are automatically cut in sync and assembled into the finished video, including an intro.' },
+      steps: {
+        de: ['Skript und Sprechertext für das Erklärvideo mit Claude erstellt', 'Screen aufgenommen, dabei Mausposition, Zeitpunkt und Aktion pro Schritt erfasst', 'Vertonung per ElevenLabs-API generiert, während im Hintergrund parallel der Screen-Ablauf abgespielt wurde', 'Ton- und Screen-Aufnahme automatisch synchron geschnitten und mit Intro zum fertigen Video zusammengesetzt'],
+        en: ['Wrote the script and voiceover text for the explainer video with Claude', 'Recorded the screen, capturing mouse position, timing, and action at each step', 'Generated the voiceover via the ElevenLabs API while the screen recording played in the background', 'Automatically cut the audio and screen recording in sync and assembled the finished video with an intro']
+      },
+      resultLong: { de: 'Vom Skript bis zum fertigen Video läuft die Pipeline durchgehend automatisiert, ohne manuellen Schnitt.', en: 'From script to finished video, the pipeline runs fully automated end to end, with no manual editing.' },
+      tech: ['Claude', 'ElevenLabs API', 'Screen Recording', 'Python'],
+      github: 'https://github.com/Robinvm96',
+      internal: true
+    }
+  ];
+
+  skillsData = [
+    { name: 'SQL and Data Modeling', items: ['SQL', 'dbt', 'Data Modeling', 'Query Optimization'] },
+    { name: 'Python', items: ['Pandas', 'Scripting', 'ML Models', 'Statistics'] },
+    { name: 'Data Engineering', items: ['ETL and ELT', 'Airflow', 'Data Quality', 'Git'] },
+    { name: 'AI and Automation', items: ['Claude', 'OpenAI API', 'LLM Integration', 'n8n'] },
+    { name: 'Analytics and BI', items: ['Tableau', 'Power BI', 'Dashboard Design', 'KNIME'] },
+    { name: 'Cloud', items: ['Google Cloud Platform', 'BigQuery', 'Databricks', 'Azure'] }
+  ];
+
+  testimonialsData = [
+    {
+      id: 1,
+      quote: {
+        de: 'Robin hat uns über ca. 2 Jahre großartig als Analyst im Team unterstützt. Er ist ein strategischer Denker und strukturierter Umsetzer mit sehr guten Tableau-Kenntnissen. Er ist sehr kundenorientiert, denkt auch über den angemeldeten Bedarf der Businessfunktionen hinaus und macht entsprechende Lösungsvorschläge. Er ist ein Teamplayer, der Kolleg:innen unterstützt, wo er kann, ohne seinen Fokus zu verlieren.',
+        en: "Robin supported us fantastically as an analyst on the team for about 2 years. He's a strategic thinker and a structured executor with very strong Tableau skills. He's very customer-oriented, thinks beyond the stated needs of the business functions, and comes up with corresponding solution proposals. He's a team player who supports colleagues wherever he can, without losing his own focus. (Translated from the original German.)"
+      },
+      name: 'Lisa Menne',
+      role: { de: 'Associate Director, B2B Lead Cardiometabolic Health · Eli Lilly (ehem. Data Analytics Lead)', en: 'Associate Director, B2B Lead Cardiometabolic Health · Eli Lilly (former Data Analytics Lead)' },
+      initials: 'LM'
+    },
+    {
+      id: 2,
+      quote: {
+        de: 'Robin betreute und entwickelte eigenverantwortlich einen unserer Enterprise-Kunden kontinuierlich weiter — von der technischen Integration unserer BI-Lösungen bis zur Schulung der Endanwender. Er überzeugte durch stets sehr gute Arbeitsqualität, hohe Eigenmotivation und großes Engagement auch über das übliche Maß hinaus. Die ihm übertragenen Aufgaben erfüllte er stets zu unserer vollsten Zufriedenheit. Aufgrund seiner zuvorkommenden Art wurde er von Kolleg:innen, Kunden und Geschäftspartnern gleichermaßen sehr geschätzt.',
+        en: 'Robin independently managed and continuously developed one of our enterprise clients — from the technical integration of our BI solutions to training the end users. He consistently delivered excellent work quality, high self-motivation, and strong commitment well beyond the norm. He always completed the tasks assigned to him to our complete satisfaction. Thanks to his considerate manner, he was highly valued by colleagues, clients, and business partners alike. (Translated from the original German.)'
+      },
+      name: 'Reeno Grummer',
+      role: { de: 'Managing Director · The Information Lab', en: 'Managing Director · The Information Lab' },
+      initials: 'RG'
+    }
+  ];
+
+  educationData = [
+    { title: { de: 'B.Sc. Volkswirtschaftslehre', en: 'B.Sc. Economics' }, org: { de: 'Universität Hamburg', en: 'University of Hamburg' }, period: { de: '2014 — 2021 · neben Selbstständigkeit und Teilzeitarbeit', en: '2014 — 2021 · alongside self-employment and part-time work' } }
+  ];
+
+  certificationsData = [
+    { title: { de: 'dbt Fundamentals', en: 'dbt Fundamentals' }, org: { de: 'dbt Labs · 2024', en: 'dbt Labs · 2024' }, period: { de: '', en: '' } },
+    { title: { de: 'Microsoft Certified: Azure Data Engineer Associate', en: 'Microsoft Certified: Azure Data Engineer Associate' }, org: { de: 'Microsoft · 2024', en: 'Microsoft · 2024' }, period: { de: '', en: '' } },
+    { title: { de: 'Databricks Lakehouse Fundamentals', en: 'Databricks Lakehouse Fundamentals' }, org: { de: 'Databricks · 2024', en: 'Databricks · 2024' }, period: { de: '', en: '' } },
+    { title: { de: 'SQL (Advanced)', en: 'SQL (Advanced)' }, org: { de: 'HackerRank · 2024', en: 'HackerRank · 2024' }, period: { de: '', en: '' } },
+    { title: { de: 'Microsoft Certified: Power BI Data Analyst Associate', en: 'Microsoft Certified: Power BI Data Analyst Associate' }, org: { de: 'Microsoft · 2023', en: 'Microsoft · 2023' }, period: { de: '', en: '' } },
+    { title: { de: 'Tableau Certified Data Analyst', en: 'Tableau Certified Data Analyst' }, org: { de: 'Tableau · 2022', en: 'Tableau · 2022' }, period: { de: '', en: '' } }
+  ];
+
+  // Edit `claps` below to update each article's clap count shown on its blog card.
+  postsData = [
+    { tag: 'TDS Archive', title: 'ETL Pipelines in Python: Best Practices and Techniques', claps: 446, excerpt: { de: 'Strategien für generalisierbare, skalierbare und wartbare ETL-Pipelines.', en: 'Strategies for generalizable, scalable, and maintainable ETL pipelines.' }, href: 'https://medium.com/data-science/etl-pipelines-in-python-best-practices-and-techniques-0c148452cc68?sk=63dd71e066a2c8cdb8b8f3db440b0bc5', image: 'https://miro.medium.com/v2/resize:fit:1200/0*rfUlaOmf-L4ZhVEU' },
+    { tag: 'TDS Archive', title: 'Efficient Testing of ETL Pipelines with Python', claps: 359, excerpt: { de: 'Wie sich Datenqualitätsprobleme in ETL-Pipelines sofort erkennen und ihre Ursachen schnell finden lassen.', en: 'How to catch data quality issues in ETL pipelines immediately and quickly track down their root causes.' }, href: 'https://medium.com/data-science/efficient-testing-of-etl-pipelines-with-python-f4373ed5a5ff?sk=08a60d2b1228531c05ff032797df923c', image: 'https://miro.medium.com/v2/resize:fit:1200/0*ly2GnWInhG46Bunr' },
+    { tag: 'Towards Data Engineering', title: 'A Python Library every Data Engineer should know', claps: 150, excerpt: { de: 'Eine Einführung in Great Expectations — proaktive Datenqualitätsprüfung in Python.', en: 'An introduction to Great Expectations — proactive data quality testing in Python.' }, href: 'https://medium.com/towards-data-engineering/an-introduction-in-great-expectations-with-python-4793a2609e4c?sk=7fbf6da2cd905d9f4825aedb815d2090', image: 'https://miro.medium.com/v2/resize:fit:1200/0*MTbdUOuWLCTjWO5l' },
+    { tag: 'TDS Archive', title: 'Techniques for Chat Data Analytics with Python — Part I: Communication Density Analysis', claps: 113, excerpt: { de: 'Metadaten-Analyse und Visualisierung von WhatsApp-Chatdaten in Python, mit Fokus auf Kommunikationsdichte.', en: 'Metadata analysis and visualization of WhatsApp chat data in Python, with a focus on communication density.' }, href: 'https://medium.com/data-science/techniques-for-chat-data-analytics-with-python-4c15d3f5498c?sk=f7668423ddc95552ccb9722467d6a261', image: 'https://miro.medium.com/v2/resize:fit:1200/0*Lo8jlCkixbsG2zTI' },
+    { tag: 'TDS Archive', title: 'Techniques for Chat Data Analytics with Python — Part II: Topic Extraction with BERTopic', claps: 269, excerpt: { de: 'Themenextraktion aus Chat-Inhalten mit BERTopic und transformer-basierten Embeddings.', en: 'Topic extraction from chat content using BERTopic and transformer-based embeddings.' }, href: 'https://medium.com/data-science/techniques-for-chat-data-analytics-with-python-cfdbea358123?sk=13c96747edcd896920ea4861290aff74', image: 'https://miro.medium.com/v2/resize:fit:1200/0*iDcbd21EWSGMrutW' },
+    { tag: 'Personal Blog', title: 'Chat with your Finances — Part I', claps: 37, excerpt: { de: 'Wie eine einfache Nachricht im Workflow zu strukturierten Finanzdaten wird — der Auftakt einer Serie über Finanzfragen per Chat statt über Dashboards.', en: 'How a simple message becomes structured financial data in your workflow — the start of a series on answering personal finance questions through a single chat interface instead of dashboards.' }, href: 'https://medium.com/@robinvm/chat-with-your-finances-part-1-automating-expense-tracking-with-n8n-and-telegram-32d581ceb018', image: 'https://miro.medium.com/v2/resize:fit:1200/1*w6d5Fwh1U1RmYzQdsf2reA.png' }
+  ];
+
+  componentDidMount() {
+    const savedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem('rvm-theme') : null;
+    if (savedTheme) this.setState({ theme: savedTheme });
+    const savedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('rvm-lang') : null;
+    if (savedLang) this.setState({ lang: savedLang });
+    this.startTestimonialTimer();
+  }
+
+  startTestimonialTimer = () => {
+    if (this.testimonialTimer) return;
+    this.testimonialTimer = setInterval(() => {
+      const next = (this.state.testimonialIndex + 1) % this.testimonialsData.length;
+      this.setState({ testimonialIndex: next });
+    }, this.testimonialIntervalMs);
+  };
+
+  pauseTestimonials = () => {
+    if (this.testimonialTimer) {
+      clearInterval(this.testimonialTimer);
+      this.testimonialTimer = null;
+    }
+  };
+
+  resumeTestimonials = () => this.startTestimonialTimer();
+
+  selectTestimonial = (i) => {
+    this.setState({ testimonialIndex: i });
+    this.pauseTestimonials();
+    this.startTestimonialTimer();
+  };
+
+  toggleTheme = () => {
+    const next = this.state.theme === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: next });
+    if (typeof localStorage !== 'undefined') localStorage.setItem('rvm-theme', next);
+  };
+
+  setLang = (next) => {
+    this.setState({ lang: next });
+    if (typeof localStorage !== 'undefined') localStorage.setItem('rvm-lang', next);
+  };
+  setLangDe = () => this.setLang('de');
+  setLangEn = () => this.setLang('en');
+
+  openProject = (id) => this.setState({ openId: id });
+  closeProject = () => this.setState({ openId: null });
+  stop = (e) => e.stopPropagation();
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ submitted: true });
+  };
+
+  renderVals() {
+    const lang = this.state.lang;
+    const i18n = this.translations[lang];
+
+    const projects = this.projectsData.map(p => ({
+      id: p.id,
+      category: p.category,
+      tech: p.tech,
+      github: p.github,
+      internal: p.internal,
+      thumbLabel: p.thumbLabel[lang],
+      image: p.image,
+      title: p.title[lang],
+      problem: p.problem[lang],
+      solution: p.solution[lang],
+      hook: p.hook[lang],
+      problemLong: p.problemLong[lang],
+      solutionLong: p.solutionLong[lang],
+      steps: p.steps[lang],
+      resultLong: p.resultLong[lang],
+      open: () => this.openProject(p.id)
+    }));
+
+    const experience = this.experienceData.map(e => ({
+      period: e.period[lang],
+      role: e.role[lang],
+      org: e.org[lang],
+      bullets: e.bullets[lang]
+    }));
+
+    const education = this.educationData.map(ed => ({ title: ed.title[lang], org: ed.org[lang], period: ed.period[lang] }));
+    const certifications = this.certificationsData.map(c => ({ title: c.title[lang], org: c.org[lang], period: c.period[lang], meta: c.period[lang] ? `${c.org[lang]} · ${c.period[lang]}` : c.org[lang] }));
+    const posts = this.postsData.map(post => ({ tag: post.tag, title: post.title, claps: post.claps, href: post.href, image: post.image, excerpt: post.excerpt[lang] }));
+
+    const testimonials = this.testimonialsData.map((t, i) => {
+      const active = i === this.state.testimonialIndex;
+      return {
+        quote: t.quote[lang],
+        name: t.name,
+        role: t.role[lang],
+        initials: t.initials,
+        select: () => this.selectTestimonial(i),
+        current: active,
+        label: `${i18n.showTestimonial} ${i + 1}`,
+        dotStyle: `width:${active ? '22px' : '8px'};height:8px;padding:0;border:none;cursor:pointer;background:${active ? 'var(--color-accent-700)' : 'var(--color-divider)'};transition:all .25s ease`
+      };
+    });
+    const activeTestimonial = testimonials[this.state.testimonialIndex];
+
+    const openProjectRaw = this.projectsData.find(p => p.id === this.state.openId) || null;
+    const openProjectData = openProjectRaw ? {
+      category: openProjectRaw.category,
+      tech: openProjectRaw.tech,
+      github: openProjectRaw.github,
+      internal: openProjectRaw.internal,
+      thumbLabel: openProjectRaw.thumbLabel[lang],
+      title: openProjectRaw.title[lang],
+      hook: openProjectRaw.hook[lang],
+      problemLong: openProjectRaw.problemLong[lang],
+      solutionLong: openProjectRaw.solutionLong[lang],
+      steps: openProjectRaw.steps[lang],
+      resultLong: openProjectRaw.resultLong[lang]
+    } : null;
+
+    return {
+      theme: this.state.theme,
+      isDark: this.state.theme === 'dark',
+      isLight: this.state.theme !== 'dark',
+      toggleTheme: this.toggleTheme,
+      language: lang,
+      i18n,
+      setLangDe: this.setLangDe,
+      setLangEn: this.setLangEn,
+      isLangDe: lang === 'de',
+      isLangEn: lang === 'en',
+      langDeStyle: `opacity:${lang === 'de' ? '1' : '.5'};color:${lang === 'de' ? 'var(--color-accent-700)' : 'var(--color-text)'};font-size:13px;font-weight:800;line-height:1;padding:7px 12px;transition:opacity .2s ease,color .2s ease`,
+      langEnStyle: `opacity:${lang === 'en' ? '1' : '.5'};color:${lang === 'en' ? 'var(--color-accent-700)' : 'var(--color-text)'};font-size:13px;font-weight:800;line-height:1;padding:7px 12px;transition:opacity .2s ease,color .2s ease`,
+      stack: this.stackByLang[lang],
+      links: this.links,
+      socials: this.socials,
+      experience,
+      projects,
+      testimonials,
+      activeTestimonial,
+      pauseTestimonials: this.pauseTestimonials,
+      resumeTestimonials: this.resumeTestimonials,
+      skills: this.skillsData,
+      education,
+      certifications,
+      posts,
+      openProjectData,
+      closeProject: this.closeProject,
+      stop: this.stop,
+      submitted: this.state.submitted,
+      handleSubmit: this.handleSubmit
+    };
+  }
+}
+</script>
+</body>
+
