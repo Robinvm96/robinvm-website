@@ -27,7 +27,7 @@ Alternativ jeder andere statische Server (`npx serve`, VS-Code-Live-Server, …)
 
 ## Deployment
 
-Statische Seite — läuft unverändert auf GitHub Pages, Netlify, Vercel o. ä., kein Server-Backend nötig. Aktuell über GitHub Pages aus diesem Repo gehostet (Branch `main`, Root-Verzeichnis).
+Statische Seite — läuft unverändert auf Cloudflare Pages, GitHub Pages, Netlify, Vercel o. ä., kein Server-Backend nötig. Kein Build-Schritt: Framework-Preset „None", Build-Command leer, Ausgabeverzeichnis `/` (Root).
 
 ## Offene Punkte
 
